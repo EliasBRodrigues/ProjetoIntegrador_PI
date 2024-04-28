@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="icon" href="https://images.vexels.com/media/users/3/128861/isolated/preview/beeb0c08058cfaff3ceb3fa5cd56d485-iacute-cone-de-comprimido-de-c-aacute-psula-de-medicamento-by-vexels.png">
+    <title>Login</title>
+</head>
+<body>
+    <div class="loginMain"> <!-- DIV MAIOR -->
+        <div class="loginLeft">
+            <h1>Acesse a<br>Plataforma</h1>
+            <!-- <img src="/static/img/medicamento.png" class="imagem" alt="Descanso"> -->
+        </div>
+        <div class="loginRight">
+            <div class="loginCard">
+                <h1>Login</h1>
+                <div style="margin-bottom:10px">
+                    <label class="label-agree-term error_message" style="color: red;display: none;"></label>
+                </div>
+                <form action="{{url_for('signin')}}" method="POST">
+                    <div class="loginText">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Digite o Email" required>
+                    </div>
+                    <div class="loginText">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="password" id="password" placeholder="Digite a Senha" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>
+                            <a href="/signup" class="signup-image-link">não tenho cadastro</a>
+                        </label>
+                    </div>
+                    <br>
+                    <input type="button" name="signin" id="signin" class="loginButton" onclick="login();" value="Login" />
+                    <div style="margin-top:5px;">
+                        <label class="label-agree-term" id="login_message" style="color: green;display: none;"></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script type="text/javascript">
+        function login(){
+
+            if (($("#email").val() == "") || ($("#password").val() == '')){
+
+                $(".error_message").text("todos os campos devem ser preenchidos");
+                $(".error_message").show(0).delay(3000).hide(0);
+            }
+            else {
+                var data = new FormData();
+                data.append('email', $("#email").val());
+                data.append('password', $("#password").val());
+                $.ajax({
+                    type: 'POST',
+                    enctype: 'multipart/form-data',
+                    url: '/signin',
+                    processData: false,
+                    cache: false,
+                    timeout: 800000,
+                    contentType: false,
+                    data: data,
+                    success: function(response) {
+                        var data = JSON.parse(response);
+                        if (data['status'] == true){
+                            $('#login_message').text("Welcome " + data['username'] +", Login Successfully.");
+                            $('#login_message').show(0).delay(3000).hide(0);
+                        } else{
+                            $(".error_message").text("Incorrect Email and Password.");
+                            $(".error_message").show(0).delay(3000).hide(0);
+                        }
+                    } 
+                });
+            }
+        }
+
+    </script>
+</body>
+</html>
+
