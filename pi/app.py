@@ -1,8 +1,10 @@
 from flask import Flask
-from back import user, db
+from back import user
 
 app = Flask(__name__, template_folder='views')
-user.init_app(app)
+app.secret_key = "projeto_integrador"
 
+user.init_app(app) 
+    
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True)

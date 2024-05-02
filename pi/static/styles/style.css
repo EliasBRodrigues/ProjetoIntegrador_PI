@@ -494,6 +494,10 @@ body {
         width: 85%;
     }
 }
+.error_message{
+    color: red;
+    display: none;
+}
 
 @media only screen and (max-width: 600px){
     .loginMain{
