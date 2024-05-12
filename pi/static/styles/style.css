@@ -506,6 +506,9 @@ a {
 }
 
 @media only screen and (max-width: 950px){
+    .loginLeft > h1 {
+        color: #0ebdbd;
+    }
     .loginCard{
         width: 85%;
     }
@@ -516,12 +519,14 @@ a {
 }
 
 @media only screen and (max-width: 600px){
+    .loginLeft > h1 {
+        color: #0ebdbd;
+    }
+    
     .loginMain{
         flex-direction: column;
     }
-    .loginLeft > h1{
-        display: none;
-    }
+
     .loginLeft{
         width: 100%;
         height: auto;
@@ -531,8 +536,8 @@ a {
         height: auto;
     }
     .imagem{
-        width: 90vw;
-        height: 30vh;
+        width: 95vw;
+        height: 45vh;
     }
     .loginCard{
         width: 90%;
