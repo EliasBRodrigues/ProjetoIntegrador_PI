@@ -3,165 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Home</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header__welcome">
-            <div class="header__welcome-texts">
-                <div class="header__welcome-greeting">Olá, Usuário</div>
-                <h1>Welcome {{session.sessionusername}}</h1>
-                <ul class="nav nav-pills pull-right">
+    <header class="home-header">
+        <div class="home-header__top">
+            <div class="home-header__texts">
+                <div class="home-header__greeting">Olá, {{session.sessionusername}}</div>
+                <!-- <ul class="nav nav-pills pull-right">
                     <li role="presentation"><a href="/logout">Logout</a></li>
-                </ul>
-                <div class="header__welcome-question">Qual o remédio para hoje?</div>
+                </ul> -->
+                <div class="home-header__question">Qual o remédio para hoje?</div>
             </div>
-            <div class="header__profile-image">
-                <img src="/static/img/profile-image.png">
+            <div class="home-header__profile-image">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
             </div>
         </div>
-        <div class="header__search-field">
-            <div class="header__serach-text">
-                <form class="header__serach-form" action="">
-                    <button class="header__serach-button">
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.75 14.75L11.4875 11.4875M13.25 7.25C13.25 10.5637 10.5637 13.25 7.25 13.25C3.93629 13.25 1.25 10.5637 1.25 7.25C1.25 3.93629 3.93629 1.25 7.25 1.25C10.5637 1.25 13.25 3.93629 13.25 7.25Z" stroke="#9D9D9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>                            
-                    </button>
-                    <input class="header__serach-text-area" type="text" placeholder="Buscar...">
-                    <div class="header__search-image">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" heigth="18" viewBox="0 -960 960 960" fill="#5F6368">
-                            <path d="M440-440ZM120-120q-33 0-56.5-23.5T40-200v-480q0-33 23.5-56.5T120-760h126l74-80h240v80H355l-73 80H120v480h640v-360h80v360q0 33-23.5 56.5T760-120H120Zm640-560v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80ZM440-260q75 0 127.5-52.5T620-440q0-75-52.5-127.5T440-620q-75 0-127.5 52.5T260-440q0 75 52.5 127.5T440-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29Z"/>
-                        </svg>
-                    </div>
-                </form>
-            </div>
+        <div class="home-header__bottom">
+            <form class="home-header__serach-form" action="">
+                <button class="home-header__serach-button">
+                    <img src="../static/img/icons/magnify_icon.png" alt="">                         
+                </button>
+                <input class="home-header__search" type="text" placeholder="Buscar...">
+                <div class="home-header__search-image">
+                    <img src="../static/img/icons/add-photo_icon.png" alt="">
+                </div>
+            </form>
         </div>
     </header>
 
-    <div class="main-frame">
-        <main class="main">
-            <section class="main__system-functions">
-                <div class="main__system-functions-container">
-                    <div class="main__system-function">
-                        <span class="main__function-icon">
-                            <img src="/static/img/icons/book_icon.png">
-                        </span>
-                        <div class="main__functions-texts">
-                            <p class="main__function-title">Estudos de casos</p>
-                            <p class="main__function-subtitle">Aprenda com casos reais</p>
-                        </div>
-                    </div>
-                    <div class="main__system-function">
-                        <span class="main__function-icon">
-                            <img src="/static/img/icons/notes_icon.png">
-                        </span>
-                        <div class="main__functions-texts">
-                            <p class="main__function-title">Minhas anotações</p>
-                            <p class="main__function-subtitle">Registre suas reflexões</p>
-                        </div>
-                    </div>
-                    <div class="main__system-function">
-                        <span class="main__function-icon">
-                            <img src="/static/img/icons/calculator_icon.png">
-                        </span>
-                        <div class="main__functions-texts">
-                            <p class="main__function-title">Calcular medicamentos</p>
-                            <p class="main__function-subtitle">Indique a dosagem correta</p>
-                        </div>
+    <main class="home-main">
+        <section class="home-main__system-functions">
+            <div class="home-main__system-functions-container">
+                <div class="home-main__system-function">
+                    <span class="home-main__function-icon">
+                        <img src="../static/img/icons/book_icon.png">
+                    </span>
+                    <div class="home-main__functions-texts">
+                        <p class="home-main__function-title">Estudos de casos</p>
+                        <p class="home-main__function-subtitle">Aprenda com casos reais</p>
                     </div>
                 </div>
-            </section>
+                <div class="home-main__system-function">
+                    <span class="home-main__function-icon">
+                        <img src="../static/img/icons/notes_icon.png">
+                    </span>
+                    <div class="home-main__functions-texts">
+                        <p class="home-main__function-title">Minhas anotações</p>
+                        <p class="home-main__function-subtitle">Registre suas reflexões</p>
+                    </div>
+                </div>
+                <div class="home-main__system-function">
+                    <span class="home-main__function-icon">
+                        <img src="../static/img/icons/calculator_icon.png">
+                    </span>
+                    <div class="home-main__functions-texts">
+                        <p class="home-main__function-title">Calcular medicamentos</p>
+                        <p class="home-main__function-subtitle">Indique a dosagem correta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section class="main__search-history">
-                <div class="main__search-history-header">
-                    <h3 class="main__search-history-title">Histórico de busca</h3>
-                    <a class="main__search-history-viewAll" href="">ver tudo</a>
+        <section class="home-main__search-history">
+            <div class="home-main__search-history-header">
+                <h3 class="home-main__search-history-title">Histórico de busca</h3>
+                <a class="home-main__search-history-viewAll" href="">ver tudo</a>
+            </div>
+            <div class="home-main__search-history-container">
+                <div class="home-main__search-history-item">
+                    <div class="home-main__search-history-item-type">
+                        <p>G</p>
+                    </div>
+                    <div class="home-main__search-history-texts">
+                        <p>Nome do remédio</p>
+                        <p>Princípio ativo</p>
+                    </div>
+                    <a href="#" class="home-main__search-history-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18">
+                            <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
+                        </svg>
+                    </a>
                 </div>
-                <div class="main__search-history-container">
-                    <div class="main__search-history-item">
-                        <div class="main__search-history-item-type">
-                            <p>G</p>
-                        </div>
-                        <div class="main__search-history-texts">
-                            <p>Nome do remédio</p>
-                            <p>Princípio ativo</p>
-                        </div>
-                        <span class="main__search-history-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18">
-                                <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="main__search-history-item">
-                        <div class="main__search-history-item-type">
-                            <p>G</p>
-                        </div>     
-                        <div class="main__search-history-texts">
-                            <p>Nome do remédio</p>
-                            <p>Princípio ativo</p>
-                        </div>
-                        <span class="main__search-history-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18">
-                                <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="main__search-history-item">
-                        <div class="main__search-history-item-type">
-                            <p>G</p>
-                        </div>
-                        <div class="main__search-history-texts">
-                            <p>Nome do remédio</p>
-                            <p>Princípio ativo</p>
-                        </div>
-                        <span class="main__search-history-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18">
-                                <path d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"/>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="main__last-notes">
-                <div class="main__last-notes-header">
-                    <h3 class="main__last-notes-title">Ultimas anotações</h3>
-                    <a class="main__last-notes-viewAll" href="">ver tudo</a>
+        <section class="home-main__last-notes">
+            <div class="home-main__last-notes-header">
+                <h3 class="home-main__last-notes-title">Ultimas anotações</h3>
+                <a class="home-main__last-notes-viewAll" href="">ver tudo</a>
+            </div>
+            <div class="home-main__last-notes-container">
+                <div class="home-main__last-notes-item">
+                    <p>Nome do remédio</p>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                            <path d="M479.79-192Q450-192 429-213.21t-21-51Q408-294 429.21-315t51-21Q510-336 531-314.79t21 51Q552-234 530.79-213t-51 21Zm0-216Q450-408 429-429.21t-21-51Q408-510 429.21-531t51-21Q510-552 531-530.79t21 51Q552-450 530.79-429t-51 21Zm0-216Q450-624 429-645.21t-21-51Q408-726 429.21-747t51-21Q510-768 531-746.79t21 51Q552-666 530.79-645t-51 21Z"/>
+                        </svg>
+                    </a>
                 </div>
-                <div class="main__last-notes-container">
-                    <div class="main__last-notes-item">
-                        <p>Nome do remédio</p>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
-                                <path d="M479.79-192Q450-192 429-213.21t-21-51Q408-294 429.21-315t51-21Q510-336 531-314.79t21 51Q552-234 530.79-213t-51 21Zm0-216Q450-408 429-429.21t-21-51Q408-510 429.21-531t51-21Q510-552 531-530.79t21 51Q552-450 530.79-429t-51 21Zm0-216Q450-624 429-645.21t-21-51Q408-726 429.21-747t51-21Q510-768 531-746.79t21 51Q552-666 530.79-645t-51 21Z"/>
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="main__last-notes-item">
-                        <p>Nome do remédio</p>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
-                                <path d="M479.79-192Q450-192 429-213.21t-21-51Q408-294 429.21-315t51-21Q510-336 531-314.79t21 51Q552-234 530.79-213t-51 21Zm0-216Q450-408 429-429.21t-21-51Q408-510 429.21-531t51-21Q510-552 531-530.79t21 51Q552-450 530.79-429t-51 21Zm0-216Q450-624 429-645.21t-21-51Q408-726 429.21-747t51-21Q510-768 531-746.79t21 51Q552-666 530.79-645t-51 21Z"/>
-                            </svg>
-                        </span>
-                    </div>
-                    <div class="main__last-notes-item">
-                        <p>Nome do remédio</p>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
-                                <path d="M479.79-192Q450-192 429-213.21t-21-51Q408-294 429.21-315t51-21Q510-336 531-314.79t21 51Q552-234 530.79-213t-51 21Zm0-216Q450-408 429-429.21t-21-51Q408-510 429.21-531t51-21Q510-552 531-530.79t21 51Q552-450 530.79-429t-51 21Zm0-216Q450-624 429-645.21t-21-51Q408-726 429.21-747t51-21Q510-768 531-746.79t21 51Q552-666 530.79-645t-51 21Z"/>
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer-nav">
         <div class="footer-nav__wrapper">
@@ -196,16 +143,15 @@
 
    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-   <script src="/static/js/main.js"></script>
-   <script src="/static/js/jquery.js"></script>
-   <script src="/static/js/scripts.js"></script>
+   <script src="../js/main.js"></script>
+   <script src="../js/jquery.js"></script>
 
     <script type="text/javascript">
-        const emblaNode = document.querySelector('.main__system-functions')
+        const emblaNode = document.querySelector('.home-main__system-functions')
         const options = { loop: false }
         const emblaApi = EmblaCarousel(emblaNode, options)
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
