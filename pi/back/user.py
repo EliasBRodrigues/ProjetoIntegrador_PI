@@ -75,3 +75,8 @@ def init_app(app):
     def logout():
         session.pop('sessionusername', None)
         return redirect('/')
+
+    
+    @app.route('/usernotes')
+    def userNotes():
+        return render_template('notes.html')

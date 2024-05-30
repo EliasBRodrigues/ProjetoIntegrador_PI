@@ -550,15 +550,15 @@ body {
 }
 
 .home-main__system-function:nth-child(1) {
-    background-image: url("/wave-bg_01.svg");
+    background-image: url("../img/wave-bg_01.svg");
     background-repeat: no-repeat;
 }
 .home-main__system-function:nth-child(2) {
-    background-image: url("/wave-bg_02.svg");
+    background-image: url("../img/wave-bg_02.svg");
     background-repeat: no-repeat;
 }
 .home-main__system-function:nth-child(3) {
-    background-image: url("/wave-bg_03.svg");
+    background-image: url("../img/wave-bg_03.svg");
     background-repeat: no-repeat;
 }
 
