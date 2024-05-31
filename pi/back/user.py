@@ -80,3 +80,7 @@ def init_app(app):
     @app.route('/usernotes')
     def userNotes():
         return render_template('notes.html')
+    
+    @app.route('/casestudy')
+    def caseStudy():
+        return render_template('case_study1.html')
