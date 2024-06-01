@@ -77,4 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
             container.style.backgroundColor = isHidden ? '#EAEAEA' : '#FFFFFF';
         });
     });
+
+
+    //HOME MODAL
+    const modalElement = document.getElementById('modal-container');
+    const profileImageElement = document.querySelector('.home-header__profile-image');
+    const closeIcon = document.querySelector('.home-modal__header img');
+
+    profileImageElement.addEventListener('click', function() {
+        modalElement.style.display = 'grid';
+    })
+    closeIcon.addEventListener('click', function() {
+        modalElement.style.display = 'none';
+    })
+
 });
