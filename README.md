@@ -21,7 +21,7 @@ O projeto visa criar uma solução tecnológica que auxilia profissionais e estu
 
 ## Conclusão
 
-Este projeto representa um avanço significativo no apoio tecnológico para a área da farmácia, proporcionando uma ferramenta inovadora que combina precisão, eficiência e acessibilidade para profissionais e estudantes.
+Este projeto representa um avanço no apoio tecnológico para a área da farmácia, proporcionando uma ferramenta inovadora que combina precisão, eficiência e acessibilidade para profissionais e estudantes.
 
 ## Autores
 
