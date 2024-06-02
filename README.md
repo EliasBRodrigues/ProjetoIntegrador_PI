@@ -22,6 +22,7 @@ O projeto visa criar uma solução tecnológica que auxilia profissionais e estu
   <p align="center">
     
     ![Captura_de_tela_2024-05-31_220326-removebg-preview](https://github.com/EliasBRodrigues/ProjetoIntegrador_PI/assets/112342764/aa02c132-cb01-467b-bd8d-6ba171700a87) 
+
     ![Captura_de_tela_2024-06-01_131318-removebg-preview](https://github.com/EliasBRodrigues/ProjetoIntegrador_PI/assets/112342764/e142f856-0e6a-4df2-8ce1-9aaa8532e767)
   
   </p>
