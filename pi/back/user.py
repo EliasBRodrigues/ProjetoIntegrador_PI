@@ -77,6 +77,10 @@ def init_app(app):
         return redirect('/')
 
     
+    @app.route('/medicine')
+    def medicine():
+        return render_template('medicine.html')
+    
     @app.route('/usernotes')
     def userNotes():
         return render_template('notes.html')
