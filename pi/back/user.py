@@ -84,3 +84,8 @@ def init_app(app):
     @app.route('/casestudy')
     def caseStudy():
         return render_template('case_study1.html')
+    
+    @app.route('/casestudies')
+    def caseStudies():
+        return render_template('case_study2.html')
+    

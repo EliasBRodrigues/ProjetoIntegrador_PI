@@ -90,5 +90,141 @@ document.addEventListener('DOMContentLoaded', function() {
     closeIcon.addEventListener('click', function() {
         modalElement.style.display = 'none';
     })
-
 });
+
+    //CASE STUDY
+    const questions = [
+        {
+            type: "Prescrição de Medicamentos",
+            question: "Um cliente chega com uma prescrição médica para um medicamento controlado. Você percebe que a dose prescrita é maior do que a dose usual para esse medicamento e que pode representar um risco para o cliente. O que deve ser feito?",
+            answers: [
+                {text: "Preencher a receita conforme prescrita e instruir o cliente a tomar conforme indicado pelo médico.", correct: false},
+                {text: "Recusar-se a preencher a receita e entrar em contato com o médico para esclarecimentos.", correct: true},
+                {text: "Preencher a receita, mas fornecer ao cliente informações detalhadas sobre os riscos e aconselhá-lo a entrar em contato com o médico para revisão.", correct: false},
+                {text: "Consultar um colega farmacêutico para obter uma segunda opinião antes de tomar uma decisão.", correct: false},
+            ]
+        },
+        {
+            type: "Prescrição de Benzodiazepínico",
+            question: "Um cliente idoso apresenta uma receita para um benzodiazepínico de ação prolongada para tratar a insônia, mas o uso prolongado pode aumentar o risco de quedas e fraturas. O que deve ser feito?",
+            answers: [
+                {text: "Discutir os riscos com o cliente e preencher a receita conforme prescrita.", correct: false},
+                {text: "Sugerir ao cliente a utilização de um benzodiazepínico de ação curta após consultar o médico.", correct: false},
+                {text: "onsultar o médico para discutir alternativas mais seguras devido à idade do cliente.", correct: false},
+                {text: "Fornecer a medicação, mas alertar o cliente sobre os riscos e medidas preventivas contra quedas.", correct: true},
+            ]
+        },
+    ];
+    
+    const questionElement = document.getElementById('study__description-text');
+    const answerButton = document.getElementById('study__answers');
+    const nextButton = document.getElementById('study__next-button');
+    const questionNumber = document.getElementById('study__header-number')
+    const kindStudy = document.getElementById("study__type-title");
+    
+    let currentQuestionIndex = 0;
+    let score = 0;
+    
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        nextButton.innerHTML = "Próxima";
+        showQuestion();
+    }
+    
+    function showQuestion() {
+        resetState();
+        let currentQuestion = questions[currentQuestionIndex];
+        let questionNo = currentQuestionIndex + 1;
+
+        if(questionNo < 10) {
+            questionNumber.innerHTML = "0" + questionNo;
+        } else {
+            questionNumber.innerHTML = questionNo;
+        }
+    
+        questionElement.innerHTML = currentQuestion.question;
+    
+        kindStudy.innerHTML = currentQuestion.type;
+    
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("study__answer-button");
+            answerButton.appendChild(button);
+            if(answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+    
+            button.addEventListener('click', selectAnswer);
+        });
+    }
+    
+    function resetState() {
+        nextButton.style.display = "none";
+        while(answerButton.firstChild) {
+            answerButton.removeChild(answerButton.firstChild);
+        }
+    }
+    
+    function selectAnswer(e) {
+        const selectedBtn = e.target;
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        if(isCorrect) {
+            selectedBtn.classList.add('correct');
+            score++;
+        } else {
+            selectedBtn.classList.add('incorrect');
+        }
+        Array.from(answerButton.children).forEach(button => {
+            if(button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
+            button.disabled = true;
+        });
+        nextButton.style.display = "grid"
+    }
+    
+    function showScore() {
+        resetState();
+        questionElement.innerHTML = `Você acertou ${score} de ${questions.length} casos.`;
+        nextButton.innerHTML = "Tentar novamente";
+        nextButton.style.display = "grid";
+    }
+    
+    function handleNextButton() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showScore();
+        }
+    }
+    
+    nextButton.addEventListener('click', ()=> {
+        if(currentQuestionIndex < questions.length) {
+            handleNextButton();
+        } else {
+            startQuiz();
+        }
+    });
+    
+    //QUESTION DROPDOWN
+    document.addEventListener('DOMContentLoaded', function() {
+        const item = document.querySelector('.study__type-icon');
+        const dropdown = item.parentElement.nextElementSibling;
+
+        dropdown.style.display = 'block';
+    
+        item.addEventListener('click', function() {
+            const isHidden = dropdown.style.display === 'none' || !dropdown.style.display;
+    
+            dropdown.style.display = isHidden ? 'block' : 'none';
+            item.classList.toggle('rotate-icon-show', !isHidden);
+            item.classList.toggle('rotate-icon-hide', isHidden);
+        });
+    });
+    
+    
+    startQuiz();
+
