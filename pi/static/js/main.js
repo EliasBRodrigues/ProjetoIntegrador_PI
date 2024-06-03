@@ -1,51 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    const navItems = document.querySelectorAll('.footer__nav-item');
+    lucide.createIcons();
 
-    function applyStylesToSelectedItem(selectedItem) {
-        selectedItem.style.backgroundColor = '#DDF0EE';
-        const svgPaths = selectedItem.querySelectorAll('svg > path');
-        svgPaths.forEach(path => {
-            path.style.fill = '#1A998E';
-        });
-        const paragraph = selectedItem.querySelector('p');
-        paragraph.style.display = 'flex';
-        paragraph.style.color = "#1A998E";
+    function getCurrentPage() {
+        var path = window.location.pathname;
+        var page = path.split("/").pop(); // Obtém a parte final da URL
+
+       if (page) {
+            document.getElementById(page).style.backgroundColor = "#DDF0EE";
+
+            const iconPath = `#${page} .nav-icon`;
+            const paragraphPath = `#${page} p`;
+            const element = document.querySelector(iconPath);
+            const paragraphElement = document.querySelector(paragraphPath);
+
+            // Verifica se o elemento foi encontrado
+            if (element && paragraphElement) {
+                element.style.color = "#1A998E";
+                paragraphElement.style.display = "flex";
+            } else {
+                console.error("Elemento não encontrado com o ID dinâmico:", idDinamico);
+            }
+       }
     }
+    window.onload = getCurrentPage;
 
-    function removeStylesFromAllItems() {
-        navItems.forEach(item => {
-            item.style.backgroundColor = '';
-            const svgPaths = item.querySelectorAll('svg > path');
-            svgPaths.forEach(path => {
-                path.style.fill = '';
-            });
-            const paragraph = item.querySelector('p');
-            paragraph.style.display = 'none';
-        });
-    }
-
-    function handleNavItemClick() {
-        removeStylesFromAllItems();
-        applyStylesToSelectedItem(this);
-        localStorage.setItem('selectedLink', this.id);
-    }
-
-    // Recuperar o item selecionado armazenado no armazenamento local
-    const selectedLinkId = localStorage.getItem('selectedLink');
-
-    // Se houver um item selecionado no armazenamento local, aplicar estilos
-    if (selectedLinkId) {
-        const selectedItem = document.getElementById(selectedLinkId);
-        if (selectedItem) {
-            applyStylesToSelectedItem(selectedItem);
-        }
-    }
-
-    // Adicionar os estilos apenas ao item clicado
-    navItems.forEach(item => {
-        item.addEventListener('click', handleNavItemClick);
-    });
 
     // Efeito dropdown na lista
     const items = document.querySelectorAll('.medicine-atributes__title-item img');

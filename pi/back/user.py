@@ -71,6 +71,10 @@ def init_app(app):
         else:
             return render_template('error.html',error = 'Acesso Negado')
     
+    @app.route('/search')
+    def search():
+        return render_template('/search.html')
+    
     @app.route('/logout')
     def logout():
         session.pop('sessionusername', None)

@@ -121,13 +121,14 @@ body {
     /* mudar o bgcolor para background-color: #DDF0EE; */
 }
 
-.footer__nav-item svg > path {
-    fill: #BDBDBD; /* Mudar o fill para "#1A998E" */
+.footer__nav-item .nav-icon {
+    color: #BDBDBD;
 }
 
 .footer__nav-item p {
     font-size: 1.2rem;
     font-weight: 500;
+    color: var(--dark-green);
 
     display: none; /* Mudar o display para "Flex"  */
 }
@@ -803,6 +804,73 @@ body {
 }
 /* |===================================================================| */
 
+/* |========================= SEARCH PAGE ===========================| */
+.search__container {
+    flex-grow: 1;
+}
+
+.search__wrapper {
+    padding: 2rem;
+}
+
+.home-header__bottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.search__form {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius);
+    background-color: var(--input-bgColor);
+    background-color: var(--input-bgColor);
+
+    display: flex;
+    flex-direction: row;
+}
+.search__input {
+    flex-grow: 1;
+    height: inherit;
+    background: none;
+    padding-left: 1rem;
+}
+
+.search__button {
+    width: 36px;
+    height: inherit;
+    display: grid;
+    place-items: center;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    background: none;
+    border: none;
+}
+
+.search__button img {
+    height: 14px;
+}
+
+.search__image {
+    width: 36px;
+    height: 16px;
+    border-left: 1px solid var(--input-content);
+    padding-left: 0.5rem;
+}
+
+.search__image img {
+    height: inherit;
+    fill: var(--input-content);
+    display: block;
+}
+
+.search__form:focus-within {
+    outline: 1px solid var(--border-color);
+    background-color: #FFFFFF;
+}
+/* |===========================================================| */
+
 /* |========================= NOTES ===========================| */
 .notes-main {
     flex-grow: 1;
@@ -1199,6 +1267,8 @@ body {
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+
+    text-shadow: none;
 }
 
 #study__next-button {
@@ -1215,6 +1285,8 @@ body {
     border-radius: var(--border-radius);
     background-color: var(--dark-green);
     margin-top: 2rem;
+
+    text-shadow: none;
 }
 
 .correct {
@@ -1223,6 +1295,8 @@ body {
     background-size: 20px;
     background-position: right 10px center;
     background-repeat: no-repeat;
+
+    text-shadow: none;
 }
 
 .incorrect {
@@ -1231,6 +1305,8 @@ body {
     background-size: 20px;
     background-position: right 10px center;
     background-repeat: no-repeat;
+
+    text-shadow: none;
 }
 .rotate-icon-show {
     transform: rotate(180deg);
