@@ -1,4 +1,3 @@
-
 from flask import app, Flask
 from flask_mongoengine import MongoEngine 
 
@@ -11,6 +10,7 @@ app.config['MONGODB_SETTINGS'] = {
 
 db = MongoEngine()
 db.init_app(app)
+
 class User(db.Document):
     name = db.StringField()
     email = db.StringField()

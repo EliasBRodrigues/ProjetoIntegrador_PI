@@ -1,238 +1,193 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/styles/styles.css">
     <title>Medicamento</title>
 </head>
+
 <body>
     <header class="page-header">
         <div class="header-wrapper">
-            <img class="back-icon" src="../static/img/icons/chevron-left.png" alt="">
+            <a href="{{url_for('userHome')}}"><img class="back-icon" src="../static/img/icons/chevron-left.png" alt=""></a>
             <p class="page-name">Página</p>
             <img class="notification-icon" src="../static/img/icons/notification-off_icon.png" alt="">
         </div>
     </header>
 
     <main class="medicine-main">
+        {% for medicamento in medicamentos %}
         <div class="medicine">
-            <p class="medicine__name">Medicamento</p>
+            <p class="medicine__name">{{medicamento.nome}}</p>
             <a href="#" class="medicine__annotation-button">
                 <p>Anotar</p>
                 <img src="../static/img/icons/note-plus-outline_icon.png" alt="">
             </a>
         </div>
-
+       
         <div class="medicine-atributes">
             <div class="medicine-atributes__item">
                 <div class="medicine-atributes__title-item">
-                    <p>Atributo</p>
+                    <p>Informações do Medicamento</p>
                     <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
                 </div>
                 <div class="medicine-atributes__drop-itens">
                     <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
+                        <div class="medicine-atributes__drop-header">                  
+                            <p>Genérico/Farmácia Popular</p>
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
+                            <p>{{medicamento.generico_farmacia_popular}}</p>
                         </div>
                     </div>
                     <div class="medicine-atributes__drop-item">
                         <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
+                            <p>Classe Terapêutica</p>
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
+                            <p>{{medicamento.classe_terapeutica}}</p>
                         </div>
                     </div>
                     <div class="medicine-atributes__drop-item">
                         <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
+                            <p>Mecanismo de Ação</p>
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
+                            <p>{{medicamento.mecanismo_de_acao}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Farmacocinética</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.farmacocinetica}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Tipo de Receituário</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.tipo_de_receituario}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Apresentações</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.apresentacoes}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Administração/Reconstituição e Diluição</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.administracao_reconstituicao_diluicao}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Indicações</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.indicacoes}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Contraindicações</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.contraindicacoes}}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="medicine-atributes__item">
                 <div class="medicine-atributes__title-item">
-                    <p>Atributo</p>
+                    <p>Posologia e Administração</p>
                     <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
                 </div>
                 <div class="medicine-atributes__drop-itens">
                     <div class="medicine-atributes__drop-item">
                         <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
+                            <p>Informação</p>
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
+                            <p><p>{{medicamento.posologia_administracao}}</p></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="medicine-atributes__item">
                 <div class="medicine-atributes__title-item">
-                    <p>Atributo</p>
+                    <p>Interações</p>
                     <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
                 </div>
                 <div class="medicine-atributes__drop-itens">
                     <div class="medicine-atributes__drop-item">
                         <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
+                            <p>Informação</p>
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
+                            <p>{{medicamento.interacoes}}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="medicine-atributes__item">
                 <div class="medicine-atributes__title-item">
-                    <p>Atributo</p>
+                    <p>Uso Específico</p>
                     <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
                 </div>
                 <div class="medicine-atributes__drop-itens">
                     <div class="medicine-atributes__drop-item">
                         <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
+                            <p>Informação</p>
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
+                            <p>{{medicamento.uso_especifico}}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="medicine-atributes__item">
                 <div class="medicine-atributes__title-item">
-                    <p>Atributo</p>
+                    <p>Orientações e Efeitos</p>
                     <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
                 </div>
                 <div class="medicine-atributes__drop-itens">
                     <div class="medicine-atributes__drop-item">
                         <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
+                            <p>Informação</p>
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="medicine-atributes__drop-item">
-                        <div class="medicine-atributes__drop-header">
-                            <p>Atributo</p>
-                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
-                        </div>
-                        <div class="medicine-atributes__drop-content">
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
-                            </p>
+                            <p>{{medicamento.orientacoes_efeitos}}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="medicine-atributes__item">
                 <div class="medicine-atributes__title-item">
-                    <p>Atributo</p>
+                    <p>Outros</p>
                     <img class="medicine-atributes__img" src="../chevron-down_icon.png" alt="">
                 </div>
                 <div class="medicine-atributes__drop-itens">
@@ -243,7 +198,9 @@
                         </div>
                         <div class="medicine-atributes__drop-content">
                             <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi
+                                repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem
+                                deserunt eum in temporibus quae quos numquam dignissimos.
                             </p>
                         </div>
                     </div>
@@ -254,7 +211,9 @@
                         </div>
                         <div class="medicine-atributes__drop-content">
                             <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi
+                                repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem
+                                deserunt eum in temporibus quae quos numquam dignissimos.
                             </p>
                         </div>
                     </div>
@@ -265,40 +224,51 @@
                         </div>
                         <div class="medicine-atributes__drop-content">
                             <p>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem deserunt eum in temporibus quae quos numquam dignissimos.
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi
+                                repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem
+                                deserunt eum in temporibus quae quos numquam dignissimos.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {%endfor%}
     </main>
 
     <footer class="footer-nav">
         <div class="footer-nav__wrapper">
             <a href="#" class="footer__nav-item" id="home-link">
                 <svg width="24" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z" fill="#BDBDBD"/>
-                </svg>                               
+                    <path
+                        d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z"
+                        fill="#BDBDBD" />
+                </svg>
                 <p>
                     home
                 </p>
             </a>
             <a href="#" class="footer__nav-item" id="search-link">
                 <svg width="24" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z" fill="#BDBDBD"/>
+                    <path
+                        d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z"
+                        fill="#BDBDBD" />
                 </svg>
-                <p>buscar</p>               
+                <p>buscar</p>
             </a>
             <a href="#" class="footer__nav-item" id="notes-link">
                 <svg width="24" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z" fill="#BDBDBD"/>
-                </svg>             
+                    <path
+                        d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z"
+                        fill="#BDBDBD" />
+                </svg>
                 <p>Notas</p>
             </a>
             <a href="#" class="footer__nav-item" id="profile-link">
                 <svg width="24" height="24" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z" fill="#7DCE82"/>
+                    <path
+                        d="M9.4662 0.878918C9.75512 0.634264 10.1214 0.5 10.5 0.5C10.8786 0.5 11.2449 0.634264 11.5338 0.878918L19.5272 7.6605C19.7042 7.81056 19.8464 7.99735 19.944 8.2079C20.0415 8.41845 20.092 8.64771 20.0921 8.87976V18.9013C20.0921 19.3253 19.9236 19.7319 19.6238 20.0318C19.324 20.3316 18.9174 20.5 18.4934 20.5H12.3651C12.1531 20.5 11.9498 20.4158 11.7999 20.2659C11.65 20.116 11.5658 19.9127 11.5658 19.7007V13.0395H9.43423V19.7007C9.43423 19.9127 9.35001 20.116 9.20011 20.2659C9.05021 20.4158 8.84689 20.5 8.63489 20.5H2.50663C2.08264 20.5 1.67601 20.3316 1.3762 20.0318C1.07639 19.7319 0.907959 19.3253 0.907959 18.9013V8.87976C0.907959 8.41081 1.11472 7.96425 1.47282 7.6605L9.4662 0.878918ZM10.5 2.09818L2.50663 8.87976V18.9013H7.83556V12.2402C7.83556 12.0282 7.91977 11.8249 8.06968 11.675C8.21958 11.5251 8.4229 11.4408 8.63489 11.4408H12.3651C12.5771 11.4408 12.7804 11.5251 12.9304 11.675C13.0803 11.8249 13.1645 12.0282 13.1645 12.2402V18.9013H18.4934V8.87976L10.5 2.09818Z"
+                        fill="#7DCE82" />
                 </svg>
                 <p>Perfil</p>
             </a>
@@ -307,4 +277,5 @@
 
     <script src="../static/js/main.js"></script>
 </body>
+
 </html>

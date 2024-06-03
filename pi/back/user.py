@@ -76,14 +76,13 @@ def init_app(app):
         session.pop('sessionusername', None)
         return redirect('/')
 
-    
-    @app.route('/medicine')
-    def medicine():
-        return render_template('medicine.html')
-    
     @app.route('/usernotes')
     def userNotes():
         return render_template('notes.html')
+    
+    @app.route('/camera')
+    def userCamera():
+        return render_template('camera.html')
     
     @app.route('/casestudy')
     def caseStudy():
@@ -92,4 +91,3 @@ def init_app(app):
     @app.route('/casestudies')
     def caseStudies():
         return render_template('case_study2.html')
-    
