@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Anotações</title>
+</head>
+<body>
+    <div class="search__container">
+        <div class="search__wrapper">
+            <form class="search__form" action="">
+                <button class="search__button">
+                    <img src="../static/img/icons/magnify_icon.png" alt="">
+                </button>
+                <input class="search__input" type="text" placeholder="Buscar..." autofocus id="input-focus">
+                <a href="{{url_for('userCamera')}}">
+                    <div class="search__image">
+                        <img src="../static/img/icons/add-photo_icon.png" alt="">
+                    </div>
+                </a>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer-nav">
+        <div class="footer-nav__wrapper">
+            <a href="{{url_for('userHome')}}" class="footer__nav-item" id="userHome">
+                <i data-lucide="home" class="nav-icon"></i>               
+                <p>home</p>
+            </a>
+            <a href="{{url_for('search')}}" class="footer__nav-item"  id="search">
+                <i data-lucide="search" class="nav-icon"></i>             
+                <p>buscar</p>
+            </a>
+            <a href="{{url_for('userNotes')}}" class="footer__nav-item" id="usernotes">
+                <i data-lucide="notepad-text" class="nav-icon"></i>                                  
+                <p>Notas</p>
+            </a>
+            <a href="#" class="footer__nav-item" id="profile">
+                <i data-lucide="user-round"  class="nav-icon"></i>                
+                <p>Perfil</p>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../static/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("input-focus").focus();
+        });
+    </script>
+</body>
+</html>

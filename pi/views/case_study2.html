@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="study__header">
+        <a href="{{url_for('caseStudy')}}"><img class="back-icon" src="../static/img/icons/chevron-left.png" alt=""></a>
+        <div class="study__header-info">
+            <span class="study__header-title">Caso de Estudo</span>
+            <span id="study__header-number">01</span>
+        </div>
+    </header>
+    
+    <main class="study__main">
+        <div class="study__content">
+            <div class="study__type">
+                <span id="study__type-title">Tipo do estudo</span>
+                <img src="../static/img/icons/chevron-up_icon.png" class="study__type-icon">
+            </div>
+            <div class="study__description">
+                <p id="study__description-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur aliquid delectus veritatis maxime officiis corporis vero voluptates rerum adipisci. Ea neque assumenda est expedita doloribus quos quaerat praesentium minus esse?</p>
+            </div>
+        </div>
+        <div id="study__answers">
+            <button class="study__answer-button">answer 01</button>
+            <button class="study__answer-button">answer 02</button>
+            <button class="study__answer-button">answer 03</button>
+            <button class="study__answer-button">answer 04</button>
+        </div>
+        <button id="study__next-button">Next</button>
+    </main>
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>

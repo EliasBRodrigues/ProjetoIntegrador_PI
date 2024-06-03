@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/styles/styles.css">
+</head>
+
+<body>
+    <img src="../static/img/ibuprofeno.png" alt="">
+    <div id="container">
+        <div id="vid_container">
+            <video id="video" autoplay playsinline></video>
+            <div id="video_overlay"></div>
+        </div>
+        <div id="gui_controls">
+            <button id="switchCameraButton" name="switch Camera" type="button" aria-pressed="false"></button>
+            <a href="{{url_for('medicine')}}"><button id="takePhotoButton" name="take Photo" type="button"></button></a>
+        </div>
+    </div>
+</body>
+
+</html>

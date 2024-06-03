@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Medicamento</title>
+</head>
+
+<body>
+    <header class="page-header">
+        <div class="header-wrapper">
+            <a href="{{url_for('userHome')}}"><img class="back-icon" src="../static/img/icons/chevron-left.png" alt=""></a>
+            <p class="page-name">Página</p>
+            <img class="notification-icon" src="../static/img/icons/notification-off_icon.png" alt="">
+        </div>
+    </header>
+
+    <main class="medicine-main">
+        {% for medicamento in medicamentos %}
+        <div class="medicine">
+            <p class="medicine__name">{{medicamento.nome}}</p>
+            <a href="#" class="medicine__annotation-button">
+                <p>Anotar</p>
+                <img src="../static/img/icons/note-plus-outline_icon.png" alt="">
+            </a>
+        </div>
+       
+        <div class="medicine-atributes">
+            <div class="medicine-atributes__item">
+                <div class="medicine-atributes__title-item">
+                    <p>Informações do Medicamento</p>
+                    <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
+                </div>
+                <div class="medicine-atributes__drop-itens">
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">                  
+                            <p>Genérico/Farmácia Popular</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.generico_farmacia_popular}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Classe Terapêutica</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.classe_terapeutica}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Mecanismo de Ação</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.mecanismo_de_acao}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Farmacocinética</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            {% if medicamento.farmacocinetica %}
+                                <ul>
+                                    {% for key, value in medicamento.farmacocinetica.items() %}
+                                        <li class="medicine-atributes__content-item"><strong>{{ key }}:</strong> {{ value }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>Informação não disponível</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Tipo de Receituário</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.tipo_de_receituario}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Apresentações</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            {% if medicamento.apresentacoes %}
+                                <ul>
+                                    {% for item in medicamento.apresentacoes %}
+                                        <li class="medicine-atributes__content-item">{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>Informação não disponível</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Administração/Reconstituição e Diluição</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <!-- <p>{{medicamento.administracao_reconstituicao_diluicao}}</p> -->
+                            {% if medicamento.administracao_reconstituicao_diluicao %}
+                                <ul>
+                                    {% for key, value in medicamento.administracao_reconstituicao_diluicao.items() %}
+                                        <li class="medicine-atributes__content-item"><strong>{{ key }}:</strong> {{ value }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>Informação não disponível</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Indicações</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.indicacoes}}</p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Contraindicações</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.contraindicacoes}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="medicine-atributes__item">
+                <div class="medicine-atributes__title-item">
+                    <p>Posologia e Administração</p>
+                    <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
+                </div>
+                <div class="medicine-atributes__drop-itens">
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Informação</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.posologia_administracao}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="medicine-atributes__item">
+                <div class="medicine-atributes__title-item">
+                    <p>Interações</p>
+                    <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
+                </div>
+                <div class="medicine-atributes__drop-itens">
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Informação</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.interacoes}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="medicine-atributes__item">
+                <div class="medicine-atributes__title-item">
+                    <p>Uso Específico</p>
+                    <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
+                </div>
+                <div class="medicine-atributes__drop-itens">
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Informação</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.uso_especifico}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="medicine-atributes__item">
+                <div class="medicine-atributes__title-item">
+                    <p>Orientações e Efeitos</p>
+                    <img class="medicine-atributes__img" src="../static/img/icons/chevron-down_icon.png" alt="">
+                </div>
+                <div class="medicine-atributes__drop-itens">
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Informação</p>
+                            <img src="../static/img/icons/chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>{{medicamento.orientacoes_efeitos}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="medicine-atributes__item">
+                <div class="medicine-atributes__title-item">
+                    <p>Outros</p>
+                    <img class="medicine-atributes__img" src="../chevron-down_icon.png" alt="">
+                </div>
+                <div class="medicine-atributes__drop-itens">
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Atributo</p>
+                            <img src="../chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi
+                                repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem
+                                deserunt eum in temporibus quae quos numquam dignissimos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Atributo</p>
+                            <img src="../chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi
+                                repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem
+                                deserunt eum in temporibus quae quos numquam dignissimos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="medicine-atributes__drop-item">
+                        <div class="medicine-atributes__drop-header">
+                            <p>Atributo</p>
+                            <img src="../chevron-down_icon.png" alt="">
+                        </div>
+                        <div class="medicine-atributes__drop-content">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nulla commodi
+                                repellendus error a, illo natus facilis? Odio ipsam tenetur, mollitia voluptatem
+                                deserunt eum in temporibus quae quos numquam dignissimos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </main>
+
+    <footer class="footer-nav">
+        <div class="footer-nav__wrapper">
+            <a href="{{url_for('userHome')}}" class="footer__nav-item" id="userHome">
+                <i data-lucide="home" class="nav-icon"></i>               
+                <p>home</p>
+            </a>
+            <a href="{{url_for('search')}}" class="footer__nav-item"  id="search">
+                <i data-lucide="search" class="nav-icon"></i>             
+                <p>buscar</p>
+            </a>
+            <a href="{{url_for('userNotes')}}" class="footer__nav-item" id="notes">
+                <i data-lucide="notepad-text" class="nav-icon"></i>                                  
+                <p>Notas</p>
+            </a>
+            <a href="#" class="footer__nav-item" id="profile">
+                <i data-lucide="user-round"  class="nav-icon"></i>                
+                <p>Perfil</p>
+            </a>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

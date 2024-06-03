@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    <title>Página de Login</title>
+</head>
+<body>
+    {% if error %}
+        <div class="flash">{{error}}</div>
+    {% endif %}>
+
+    <header class="login-header">
+        <div class="login-header__container">
+            <img class="login-header__logo" src="../static/img/medicalize_logo.svg" alt="Logo Medicalize">
+            <div class="login-header__spacer"></div>
+            <div class="login-header__texts">
+                <p class="login-header__title">Bem-vindo ao Medicalize</p>
+                <p class="login-header__subtitle">Faça login para continuar usando nossos recursos</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="login-main">
+        <form class="login-form" action="/login" method="post">
+            <div class="login-form__group">
+                <label for="email" class="login-form__label">E-mail</label>
+                <input type="email" name="email" id="email" class="login-form__input" placeholder="Digite seu e-mail" required autofocus>
+            </div>
+            <div class="login-form__group">
+                <label for="password" class="login-form__label">Senha</label>
+                <input type="password" name="password" id="password" class="login-form__input" placeholder="Digite sua senha" required>
+            </div>
+            <a href="#" class="login-form__forgot">Esqueci minha senha</a>
+            <div class="login__form-buttons">
+                <button class="login-form__button" type="submit">Entrar</button>
+                <div class="login-form__divider">
+                    <p>OU</p>
+                </div>
+                <a href="#" class="login-form__google">
+                    <img src="../static/img/icons/google_icon.svg" alt="" class="login-main__google-icon">
+                    Entrar com o Google
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <footer class="login-footer">
+        <p>Não possui uma conta? <a class="login-footer__link" href="/signup">Cadastre-se</a></p>
+    </footer>
+</body>
+</html>
