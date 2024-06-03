@@ -14,7 +14,7 @@ medicamentos_collection = db['remedios']
 @app.route('/medicine')
 def medicine():
     # Recuperar dados do MongoDB
-    medicamentos = medicamentos_collection.find()
+    medicamentos = list(medicamentos_collection.find())
     return render_template('medicine.html', medicamentos=medicamentos)
 
 if __name__ == '__main__':

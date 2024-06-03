@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     const navItems = document.querySelectorAll('.footer__nav-item');
 
     function applyStylesToSelectedItem(selectedItem) {
@@ -227,4 +228,3 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     startQuiz();
-

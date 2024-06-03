@@ -67,7 +67,15 @@
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>{{medicamento.farmacocinetica}}</p>
+                            {% if medicamento.farmacocinetica %}
+                                <ul>
+                                    {% for key, value in medicamento.farmacocinetica.items() %}
+                                        <li class="medicine-atributes__content-item"><strong>{{ key }}:</strong> {{ value }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>Informação não disponível</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="medicine-atributes__drop-item">
@@ -85,7 +93,15 @@
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>{{medicamento.apresentacoes}}</p>
+                            {% if medicamento.apresentacoes %}
+                                <ul>
+                                    {% for item in medicamento.apresentacoes %}
+                                        <li class="medicine-atributes__content-item">{{ item }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>Informação não disponível</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="medicine-atributes__drop-item">
@@ -94,7 +110,16 @@
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p>{{medicamento.administracao_reconstituicao_diluicao}}</p>
+                            <!-- <p>{{medicamento.administracao_reconstituicao_diluicao}}</p> -->
+                            {% if medicamento.administracao_reconstituicao_diluicao %}
+                                <ul>
+                                    {% for key, value in medicamento.administracao_reconstituicao_diluicao.items() %}
+                                        <li class="medicine-atributes__content-item"><strong>{{ key }}:</strong> {{ value }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>Informação não disponível</p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="medicine-atributes__drop-item">
@@ -129,7 +154,7 @@
                             <img src="../static/img/icons/chevron-down_icon.png" alt="">
                         </div>
                         <div class="medicine-atributes__drop-content">
-                            <p><p>{{medicamento.posologia_administracao}}</p></p>
+                            <p>{{medicamento.posologia_administracao}}</p>
                         </div>
                     </div>
                 </div>

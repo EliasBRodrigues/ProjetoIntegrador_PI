@@ -1011,8 +1011,10 @@ body {
 }
 
 .medicine-atributes__drop-content {
+    width: 100%;
     padding: 0 0.5rem;
     display: none;
+
 }
 
 .medicine-atributes__drop-item {
@@ -1025,9 +1027,31 @@ body {
     border-radius: var(--border-radius);
 }
 
-.medicine-atributes__drop-item p {
+.medicine-atributes__drop-content {
     font-size: 1.4rem;
     font-weight: 500;
+}
+
+.medicine-atributes__drop-content p {
+    width: 100%;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+.medicine-atributes__content-item strong{
+    display: inline-block;
+
+}
+.medicine-atributes__content-item strong::first-letter {
+    text-transform: uppercase;
+
+}
+
+.medicine-atributes__drop-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 .medicine-atributes__drop-item img {
