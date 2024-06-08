@@ -7,7 +7,7 @@ app.secret_key = "projeto_integrador"
 
 user.init_app(app) 
 
-client = MongoClient('mongodb+srv://gusto1820:gusto1820@cluster0.fgsxn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+client = MongoClient('mongodb+srv://<USER>:<PASSWORD>@cluster0.fgsxn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['projeto_integrador']
 medicamentos_collection = db['remedios']
 
