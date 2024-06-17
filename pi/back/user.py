@@ -95,3 +95,7 @@ def init_app(app):
     @app.route('/casestudies')
     def caseStudies():
         return render_template('case_study2.html')
+    
+    @app.route('/data')
+    def showData():
+        return render_template('data.html')

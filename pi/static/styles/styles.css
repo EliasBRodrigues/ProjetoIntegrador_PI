@@ -1256,7 +1256,7 @@ body {
 }
 
 .study__answer-button {
-    border: 1px solid var(--border-color); /* TROCAR A COR PARA VARIÁVEL */
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     background: none;
     text-align: left;
@@ -1316,6 +1316,109 @@ body {
     transform: rotate(0deg);
     transition: transform 0.3s ease-in-out; 
 }
+/* |==============================================================| */
+
+/* |========================== DATAS =============================| */
+.data__main {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10rem;
+    height: inherit;
+    margin-top: 2rem;
+    justify-content: space-between;
+}
+
+.data__main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.data__temperature,
+.data__humidity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+
+   /*  border: 2px solid var(--dark-green); */
+}
+
+.normal-border {
+    border: 2px solid var(--dark-green);
+}
+
+.abnormal-border {
+    border: 2px solid #E78895;
+}
+
+.data__temperature img,
+.data__humidity img {
+    height: 48px;
+}
+
+.data__texts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.data__texts span {
+    display: inline-block;
+}
+
+.data__texts span:nth-child(1) {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.data__texts span:nth-child(2) {
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 3.4rem;
+}
+
+.data_icon {
+    width: 68px;
+    height: 68px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--border-radius);
+    background-color: var(--light-green);
+}
+
+.data__status [data-lucide="circle-check"] {
+    color: var(--dark-green);
+}
+.data__status [data-lucide="circle-x"] {
+    color: #E78895;
+}
+
+.data__status span {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.data__status {
+    padding: 0 2rem;
+}
+
+.data__status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+
  
 #gui_controls {
     position: fixed;

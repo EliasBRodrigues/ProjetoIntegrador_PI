@@ -2,6 +2,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     lucide.createIcons();
 
+    let abnormalValues = 0;
+
+    // Verifica a temperatura
+    const temperatureElement = document.getElementById('temp-value');
+    if (temperatureElement) {
+        const valueTemp = temperatureElement.textContent;
+        const newValueTemp = valueTemp.slice(0, -1); // Remove o último caractere
+        const tempValueNumber = parseFloat(newValueTemp); // Converte o valor para número
+        const tempElementContainer = document.getElementById('temperature');
+        
+        if (tempValueNumber < 35) {
+            tempElementContainer.classList.add('normal-border');
+        } else {
+            console.log("TEMPERATURA NORMAL");
+            tempElementContainer.classList.add('abnormal-border');
+            abnormalValues += 1;
+        }
+    } else {
+        console.error("Elemento com id 'temp-value' não encontrado.");
+    }
+
+    // Verifica a umidade
+    const humidityElement = document.getElementById('humi-value');
+    if (humidityElement) {
+        const valueHumi = humidityElement.textContent;
+        const newValueHumi = valueHumi.slice(0, -1); // Remove o último caractere
+        const humiValueNumber = parseFloat(newValueHumi); // Converte o valor para número
+        const humiElementContainer = document.getElementById('humidity');
+        
+        if (humiValueNumber < 35) {
+            humiElementContainer.classList.add('normal-border');
+        } else {
+            humiElementContainer.classList.add('abnormal-border');
+            abnormalValues += 1;
+        }
+    } else {
+        console.error("Elemento com id 'humi-value' não encontrado.");
+    }
+
+    const dataStatus1 = document.getElementById('abnormal');
+    const datastatus2 = document.getElementById('normal');
+    if(abnormalValues > 0) {
+        datastatus2.style.display = "none";
+        dataStatus1.style.display = "flex";
+    } else {
+        datastatus2.style.display = "flex";
+        dataStatus1.style.display = "none";
+    }
+
     function getCurrentPage() {
         var path = window.location.pathname;
         var page = path.split("/").pop(); // Obtém a parte final da URL
