@@ -99,3 +99,7 @@ def init_app(app):
     @app.route('/data')
     def showData():
         return render_template('data.html')
+    
+    @app.route('/newnote')
+    def newNote():
+        return render_template('new_note.html')

@@ -75,6 +75,16 @@ document.addEventListener('DOMContentLoaded', function() {
             modalElement.style.display = 'none';
         });
     }
+
+
+    // Alterna botão de salvar nova anotação
+    const saveButton = document.getElementById('save-btn');
+    const inputField = document.getElementById('text-area');
+
+    inputField.addEventListener('input', () => {
+        saveButton.style.display = inputField.value.trim() ? 'flex' : 'none';
+    });
+
 });
 
 document.addEventListener('DOMContentLoaded', function() {
