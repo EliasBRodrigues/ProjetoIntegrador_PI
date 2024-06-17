@@ -25,6 +25,7 @@
     outline: none;
     border: none;
     box-sizing: border-box;
+    text-shadow: none;
 }
 
 html, body {
@@ -891,7 +892,7 @@ body {
 
 .notes-main__form {
     display: flex;
-    height: 36px;
+    height: 38px;
     flex-grow: 1;
     border-radius: var(--border-radius);
     background-color: var(--input-bgColor);
@@ -905,7 +906,7 @@ body {
 }
 
 .notes-main__form:focus-within{
-    outline: 2px solid var(--border-color);
+    outline: 1px solid var(--border-color);
     background: none;
 }
 
@@ -914,6 +915,7 @@ body {
     display: grid;
     place-items: center;
     background: none;
+    border: none;
 }
 
 .notes-main__form-button img {
@@ -1434,7 +1436,7 @@ body {
     display: block;
     background: transparent;
     border: solid 2px #fff;
-    text-shadow: 0px 0px 4px black;
+    /* text-shadow: 0px 0px 4px black; */
     background-position: center center;
     background-repeat: no-repeat;
     pointer-events: auto;
